@@ -6,6 +6,10 @@ ipf use angular
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 17.2.0.
 
+## ng new  17默认没有module，如果兼容之前的module，添加--standalone=false
+
+ng new <project name> --standalone=false
+
 ## Development server
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
