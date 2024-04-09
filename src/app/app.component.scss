@@ -1,0 +1,53 @@
+.mat-toolbar {
+    justify-content: space-between;
+}
+.sideSection {
+    background-color: rgba(0,0,0,0.1);
+    ::ng-deep .mat-grid-tile-content {
+        flex-wrap: wrap;
+        align-content: space-between!important;
+    }
+}
+
+.mat-grid-list {
+    height: calc(100% - 64px)!important;
+}
+.mat-grid-tile.main-content {
+    overflow: auto!important;
+}
+
+.mat-drawer-container {
+    width: 100%;
+    background-color: transparent;
+}
+
+.side-menu {
+    display: inline-flex;
+    flex-direction: column;
+    width: 100%;
+    padding: 6px 0;
+  }
+
+  .side-menu-item {
+    background-color: transparent;
+    cursor: pointer;
+    border: none;
+
+    user-select: none;
+    min-width: 64px;
+    line-height: 36px;
+    padding: 0 16px;
+
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    flex: 1;
+  }
+
+  .side-menu-item:hover {
+    background-color: rgb(208, 208, 208);
+  }
+
+  .side-menu-item.active {
+    background-color: rgb(170, 170, 170);
+  }

@@ -1,0 +1,64 @@
+<div class="main-container">
+    <h1>Feedback Form</h1>
+
+    <table mat-table [dataSource]="forms" matSort>
+
+        <ng-container matColumnDef="action">
+            <th mat-header-cell *matHeaderCellDef aria-label="row actions">Actions</th>
+            <td mat-cell *matCellDef="let element">
+              <mat-icon mat-button [matMenuTriggerFor]="actions">more_vert</mat-icon>
+              <mat-menu #actions="matMenu">
+                <button mat-menu-item [routerLink]="['/form', element.id]">
+                  Edit
+                </button>
+                <button mat-menu-item (click)="deleteModal=true;openPreview(element)">
+                  Delete
+                </button>
+                <button mat-menu-item (click)="previewModal=true;openPreview(element)">
+                  Preview
+                </button>
+              </mat-menu>
+            </td>
+        </ng-container>
+        <ng-container matColumnDef="id">
+            <th mat-header-cell *matHeaderCellDef>id</th>
+            <td mat-cell *matCellDef="let element"> {{ element.id}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="name">
+            <th mat-header-cell *matHeaderCellDef>name</th>
+            <td mat-cell *matCellDef="let element"> {{ element.name}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="layout">
+            <th mat-header-cell *matHeaderCellDef>layout</th>
+            <td mat-cell *matCellDef="let element"> {{ element.layout}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="created">
+            <th mat-header-cell *matHeaderCellDef>created</th>
+            <td mat-cell *matCellDef="let element"> {{ element.created | date}} </td>
+        </ng-container>
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+    <mat-paginator [length]="forms.length" [pageSizeOptions]="[5,10,15,20]"></mat-paginator>
+
+    <div class="modal" *ngIf="previewModal">
+        <div class="modal-body">
+            <h1>Preview Modal</h1>
+            <form-preview [form]="selectedForm"></form-preview>
+            <button mat-raised-button color="primary" (click)="previewModal = false">Close</button>
+        </div>
+    </div>
+    <div class="modal" *ngIf="deleteModal">
+        <div class="modal-body">
+            <h1>Delete Modal</h1>
+            <h2>Do you want to delete form {{selectedForm.name}}?</h2>
+            <button mat-raised-button color="primary" (click)="deleteModal = false">Close</button>
+        </div>
+    </div>
+</div>
+
+
+

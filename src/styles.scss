@@ -1,1 +1,13 @@
 /* You can add global styles to this file, and also import other style files */
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+input, select {
+    border-radius: 5px;
+    width: 200px;
+    height: 30px;
+    line-height: 30px;
+    box-shadow: 1px 1px 1px 1px gray;
+    outline: none;
+    padding: 0 5px;
+}
