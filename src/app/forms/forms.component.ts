@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { trigger, transition, style, animate } from '@angular/animations';
 import { ApiService } from '../services/api.service';
 import { MatTableDataSource } from '@angular/material/table';
 import { MatDialog } from '@angular/material/dialog';
@@ -7,7 +8,18 @@ import { FormPreviewComponent } from './form-preview.component';
 @Component({
   selector: 'app-forms',
   templateUrl: './forms.component.html',
-  styleUrl: './forms.component.scss'
+  styleUrl: './forms.component.scss',
+  animations: [
+    trigger('fadeInOut', [
+      transition(':enter', [
+        style({ opacity: 0, left: -400 }),
+        animate(300, style({ opacity: 1, left: 0 }))
+      ]),
+      transition(':leave', [
+        animate(300, style({ opacity: 0, left: -400 }))
+      ])
+    ])
+  ]
 })
 export class FormsComponent {
   displayedColumns: any[] = ['action', 'id', 'name', 'layout', 'created'];

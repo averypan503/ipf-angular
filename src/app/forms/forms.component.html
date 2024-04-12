@@ -44,14 +44,14 @@
     </table>
     <mat-paginator [length]="forms.length" [pageSizeOptions]="[5,10,15,20]"></mat-paginator>
 
-    <div class="modal" *ngIf="previewModal">
+    <div class="modal" [@fadeInOut] *ngIf="previewModal">
         <div class="modal-body">
             <h1>Preview Modal</h1>
             <form-preview [form]="selectedForm"></form-preview>
             <button mat-raised-button color="primary" (click)="previewModal = false">Close</button>
         </div>
     </div>
-    <div class="modal" *ngIf="deleteModal">
+    <div class="modal" [@fadeInOut] *ngIf="deleteModal">
         <div class="modal-body">
             <h1>Delete Modal</h1>
             <h2>Do you want to delete form {{selectedForm.name}}?</h2>

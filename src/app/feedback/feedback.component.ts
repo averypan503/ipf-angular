@@ -1,4 +1,4 @@
-import { Component, AfterViewInit, ViewChild } from '@angular/core';
+import { Component, AfterViewInit, ViewChild, SimpleChanges } from '@angular/core';
 import { ApiService } from '../services/api.service';
 import { MatTableDataSource } from '@angular/material/table';
 import { MatPaginator } from '@angular/material/paginator';
@@ -24,6 +24,7 @@ export class FeedbackComponent {
   }
 
   ngOnInit(): void {
+    // console.log('ng onInit');
     this.apiService.getFeedback().then((res: any)=> {
       this.feedback = res;
       // console.log(res)
@@ -38,4 +39,6 @@ export class FeedbackComponent {
   openPreview(feedback: any) {
     this.selectedFeedback = Object.assign({}, feedback);
   }
+
+
 }
